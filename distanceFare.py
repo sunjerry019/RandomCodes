@@ -28,7 +28,7 @@ def out(methode):
 
 def fares(n):
 	faresPerRide = [77, 87, 97, 107, 116, 123, 129, 133, 137, 141, 145, 149, 153, 157, 161, 165, 169, 172, 175, 178, 181, 183, 185, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202]
-	# has to be sorted
+	# has to be sorted (actually probably not)
 
 	# init costs
 	costs = {0: [Counter({})]}
