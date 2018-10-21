@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+D:\Self-learn\eclipse\.metadata\.plugins\org.eclipse.jdt.core
+2508706086.index
+1906240975.index
+3441175534.index

@@ -1,0 +1,35 @@
+<script>
+var f = [];
+function factorial (n) {
+  if (n == 0 || n == 1)
+    return 1;
+  if (f[n] > 0)
+    return f[n];
+  else
+    return f[n] = factorial(n-1) * n;
+} 
+function checksqrt(a)
+{
+	b = Math.sqrt(a);
+	if((b%1)==0)
+	{
+		console.log(b);
+		return true;
+	}
+	else return false;
+}
+for(v=0;v<=200;v++)
+{
+	for(k=0;k<v;k++)
+	{
+		q = factorial(v);
+		w = factorial(k);
+		e = q*w;
+		if(checksqrt(e))
+		{
+			document.write(v+" "+k+"<br/>");
+			console.log(v+" "+k+" "+q+" "+w+" "+e);
+		}
+	}
+}
+</script>

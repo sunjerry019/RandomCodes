@@ -1,0 +1,55 @@
+<script>
+/*for(b=1;b<=10;b++)
+{
+	document.write("ac = "+(Math.pow(b,2))/4 +"<br>");
+}
+arr = new Array(11);
+for(i=1;i<=1000;i++)
+{
+	t=(i*(i+1))/2
+	arr[t%10] = 1;
+}
+for(j=0;j<11;j++)
+{
+	if(arr[j] == 1) document.write(j+"<br>");
+}
+for(i=0;i<100;i++)
+{
+	if(i%3 == 0 && i%5 == 0)
+	{
+		t = 12000 + i;
+		if(t%7 == 0)
+		{
+			document.write(t);
+			break;
+		}
+	}
+}
+total = 0;
+for(i=100;i<1000;i++)
+{
+	sosod = Math.pow(i%10,2) + Math.pow(((i%100 - i%10)/10),2) + Math.pow(((i%1000 - i%100)/100),2);
+	if(i-sosod == 543)
+	{
+		document.write(i + "<br>");
+		total += i;
+	}
+}
+document.write("Total: " + total);*/
+function d(a,b,c)
+{
+	return (Math.pow(b,2)-4*a*c);
+}
+total = 0;
+for(i=-1000;i<=1000;i++)
+{
+	d1 = d(1,(-2)*i,4);
+	d2 = d(1,(-2)*i,(6*i)+7);
+	if(d1 < 0 || d2 < 0)
+	{
+		document.write(i + " ");
+		total ++;
+	}
+}
+document.write("<br>Total: "+total);
+</script>

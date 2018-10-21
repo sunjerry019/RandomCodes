@@ -1,0 +1,84 @@
+<html>
+	<head>
+    	<script src="http://code.jquery.com/jquery.min.js"></script>
+    	<script>
+		function checkfriends()
+		{
+			countin = new Array(0,0,0,0,0)
+			for(c = 0; c < 5;c ++)
+			{
+				for(b = (c+1); b < 5;b ++)
+				{
+					if($("#"+a[c]+a[b])[0].dataset.rs == 1)
+					{
+						countin[c] ++;
+						countin[b] ++;
+					}
+				}
+			}
+			if(countin[0] > 0 && countin[1] > 0 && countin[2] > 0 && countin[3] > 0 && countin[4] > 0)
+			{
+				count ++;
+			}
+		}
+		//main
+		count = 0;
+		var a = new Array("a","b","c","d","e");
+		var output = "";
+		for(i = 0; i < 5;i ++)
+		{
+			for(j = (i+1); j < 5;j ++)
+			{
+				output += "<div id='"+a[i]+a[j]+"' data-rs='1'></div>";
+			}
+		}
+		document.write(output);
+		//.dataset.rs
+		//brute-force time
+		for(i=0;i<3;i++)
+		{
+			$("#ab")[0].dataset.rs = i;
+			for(j=0;j<3;j++)
+			{
+				$("#ac")[0].dataset.rs = i;
+				for(k=0;k<3;k++)
+				{
+					$("#ad")[0].dataset.rs = i;
+					for(l=0;l<3;l++)
+					{
+						$("#ae")[0].dataset.rs = i;
+						for(m=0;m<3;m++)
+						{
+							$("#bc")[0].dataset.rs = i;
+							for(o=0;o<3;o++)
+							{
+								$("#bd")[0].dataset.rs = i;
+								for(p=0;p<3;p++)
+								{
+									$("#be")[0].dataset.rs = i;
+									for(q=0;q<3;q++)
+									{
+										$("#cd")[0].dataset.rs = i;
+										for(r=0;r<3;r++)
+										{
+											$("#ce")[0].dataset.rs = i;
+											for(s=0;s<3;s++)
+											{
+												$("#de")[0].dataset.rs = i;
+												checkfriends();
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		document.write(count);
+		</script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<script>
+//Lunchtime Scrambles
+/*A Kindergarten class provides lunches for their students. The menu has 6 choices for a fruit, 5 choices for a sandwich, and 7 choices for a vegetable. Each student chooses one of each. If no two students have more than one item in common, what is the largest number of students that could be in the class?*/
+
+var x = new Array() //fruits
+var y = new Array() //sandwich
+var z = new Array() //vegetable
+
+function checkExist(a,b,c)
+{
+	var found = false;
+	for(o=0;o<x.length;o++)
+	{
+		var match = 0;
+		if(x[o] == a) match ++;
+		if(y[o] == b) match ++;
+		if(z[o] == c) match ++;
+		if(match > 1) found = true;
+	}
+	return found;
+}
+
+for(i=0;i<6;i++)
+{
+	for(j=0;j<5;j++)
+	{
+		for(k=0;k<7;k++)
+		{
+			if(!checkExist(i,j,k))
+			{
+				x.push(i);
+				y.push(j);
+				z.push(k);
+				console.log(i+"_"+j+"_"+k);
+			}
+		}
+	}
+}
+document.write(x.length);
+</script>

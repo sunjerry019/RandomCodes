@@ -1,0 +1,9 @@
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\bin\Debug\VisualBasicSelfLearnProject1.exe.config
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\obj\Debug\VisualBasicSelfLearnProject1.Resources.resources
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\obj\Debug\VisualBasicSelfLearnProject1.vbproj.GenerateResource.Cache
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\bin\Debug\VisualBasicSelfLearnProject1.exe
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\bin\Debug\VisualBasicSelfLearnProject1.pdb
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\bin\Debug\VisualBasicSelfLearnProject1.xml
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\obj\Debug\VisualBasicSelfLearnProject1.exe
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\obj\Debug\VisualBasicSelfLearnProject1.xml
+D:\Self-learn\Visual Basic\VisualBasicSelfLearning\VisualBasicSelfLearnProject1\obj\Debug\VisualBasicSelfLearnProject1.pdb

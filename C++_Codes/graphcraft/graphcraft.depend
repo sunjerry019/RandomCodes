@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1418816378 source:/mnt/data/C++_Codes/graphcraft/graphcraft.cpp
+	"graphcraft.h"
+	<bits/stdc++.h>
+
+1418815672 /mnt/data/C++_Codes/graphcraft/graphcraft.h
+	<vector>
+	<cstdio>
+
+1418815598 source:/mnt/data/C++_Codes/graphcraft/main.cpp
+	"graphcraft.h"
+	<cstdio>
+	<vector>
+	<iostream>
+

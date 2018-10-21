@@ -1,0 +1,16 @@
+<html>
+<script>
+fi = new Array();
+fi[0] = 1;
+fi[1] = 1;
+function fib(x)
+{
+	i = 1;
+	for(i = 2; i < x; i++)
+	{
+		fi[i] = fi[i-1] + fi[i-2];
+	}
+	return fi[x-1];
+}
+</script>
+</html>

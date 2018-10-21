@@ -1,0 +1,1 @@
+diff master backup --suppress-common-lines | grep "<" | sed 's/< //'

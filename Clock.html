@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<script>
+bgColor = "gray";
+fgColor = "#ff7f7f";
+
+var startTime = new Date(),
+    // get the starting positions of each hand (in seconds)
+    startS = startTime.getSeconds(),
+    startM = startTime.getMinutes() * 60 + startS,
+    startH = startTime.getHours() % 12 * 3600 + startM;
+
+refreshClock();
+
+// compute the rotation amount relative to the starting time
+function refreshClock() {
+  var now = new Date(),
+      diff = timeDifference(startTime, now),
+      degS = (startS + diff) / 60 * 360,
+      degM = (startM + diff) / 3600 * 360,
+      degH = (startH + diff) / 43200 * 360;
+      sDeg = 0;
+      eDeg = degM;
+  
+  /*
+    $('.hour').css(rotate(degH));
+    $('.minute').css(rotate(degM));
+    $('.second').css(rotate(degS));
+  */
+  try
+  {
+    document.getElementsByClassName("hour")[0].setAttribute("style", rotate(degH));
+    document.getElementsByClassName("minute")[0].setAttribute("style", rotate(degM));
+    document.getElementsByClassName("second")[0].setAttribute("style", rotate(degS));
+    console.log(drawSector(sDeg, eDeg));
+    document.getElementsByClassName("timepassed")[0].setAttribute("style", drawSector(sDeg, eDeg));
+  }
+  catch (e) { /* fail quietly */ }
+  
+  setTimeout(refreshClock, 1000);
+}
+
+function drawSector(degStart, degEnd)
+{
+  console.log(degStart, degEnd);
+  st = "";
+  if (degEnd%360 <= 180) {
+    st += 'background-image: linear-gradient(' + (90+degEnd) + 'deg, transparent 50%, ' + bgColor + ' 50%), linear-gradient(90deg, ' + bgColor + ' 50%, transparent 50%);';
+    st += "background-color: " + fgColor + ";" ; 
+  }
+  else {
+    st += 'background-image: linear-gradient(90deg, transparent 50%, ' + fgColor + ' 50%), linear-gradient(' + (90+degEnd) + 'deg, ' + fgColor + ' 50%,  transparent 50%);';
+    st += "background-color: " + bgColor + ";" ; 
+    // degStart += 180;
+  }
+
+  st += 'transform: rotate(' + degStart + 'deg);';
+
+  return st;
+}
+
+// compute the time difference between two date objects (in seconds)
+function timeDifference(date1, date2) {
+  return Math.round(Math.abs(date2.getTime() - date1.getTime()) / 1000);
+}
+
+// returns the cross-browser css rotation properties
+function rotate(deg) {
+  return '-webkit-transform: rotate(' + deg + 'deg);' 
+    + '-moz-transform: rotate(' + deg + 'deg);'
+    + '-ms-transform: rotate(' + deg + 'deg);'
+    + '-o-transform: rotate(' + deg + 'deg);'
+    + 'transform: rotate(' + deg + 'deg);';
+  /*
+  return {
+    '-webkit-transform': 'rotate(' + deg + 'deg)',
+    '-moz-transform': 'rotate(' + deg + 'deg)',
+    '-ms-transform': 'rotate(' + deg + 'deg)',
+    '-o-transform': 'rotate(' + deg + 'deg)',
+    'transform': 'rotate(' + deg + 'deg)'
+  };
+  */
+}
+</script>
+
+<style>
+body {
+  background-color: gray;
+}
+
+.clock {
+  text-align: center;
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 30rem; height: 30rem;
+  margin: -15rem 0 0 -15rem;
+  border-radius: 50%;
+  border: 0.3rem solid white;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.hand {
+  position: absolute;
+  background-color: white;
+  
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -moz-transition: -moz-transform 0.5s ease;
+  -ms-transition: -ms-transform 0.5s ease;
+  -o-transition: -o-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  
+  -webkit-transform-origin: 50% 100%;
+  -moz-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+
+.timepassed
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #ff7f7f;
+  border-radius: 50%;
+  /* clip-path: circle(50% at center); */
+  z-index: -1;
+  
+  background-image: linear-gradient(90deg, transparent 50%, gray 50%),  
+    linear-gradient(90deg, gray 50%, transparent 50%);
+
+  /* https://stackoverflow.com/questions/21205652/how-to-draw-a-circle-sector-in-css */
+  
+  -webkit-transition: -webkit-transform 0.5s ease;
+  -moz-transition: -moz-transform 0.5s ease;
+  -ms-transition: -ms-transform 0.5s ease;
+  -o-transition: -o-transform 0.5s ease;
+  transition: transform 0.5s ease;
+
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -ms-transform-origin: center;
+  -o-transform-origin: center;
+  transform-origin: center;
+}
+
+.hour {
+  height: 20%; top: 30%;			/* 20% */
+  left: 50%; width: 8px; margin-left: -1.5px; 	/* 3px */
+}
+
+.minute {
+  height: 40%; top: 10%; 			/* 30% 20% */
+  left: 50%; width: 5px; margin-left: -1px; 	/* 2px */
+}
+
+.second {
+  height: 45%; top: 5%;				/* 45% */
+  left: 50%; width: 2px; margin-left: -0.5px; 	/* 1px */
+}
+</style>
+
+<div class="clock">
+  <div class="hand hour"></div>
+  <div class="hand minute"></div>
+  <div class="hand second"></div>
+  <div class="timepassed"></div>
+</div>

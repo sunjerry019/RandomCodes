@@ -1,0 +1,24 @@
+<script>
+function check(a)
+{
+	b=a.toString();
+	b.split("");
+	if(b[0] == b[3] && b[1] == b[2])
+	{
+		return true;
+	}
+}
+count = 0;
+for(i=1000;i<=9999;i++)
+{
+	if(check(i))
+	{
+		if((i%7) == 0)
+		{
+			count++;
+			document.write(i+"<br/>");
+		}
+	}
+}
+document.write("count: " + count);
+</script>

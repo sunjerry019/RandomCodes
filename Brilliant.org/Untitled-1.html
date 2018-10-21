@@ -1,0 +1,27 @@
+<script>
+a = new Array();
+b = new Array();
+function test()
+{
+	for(i = 1; i <= 6; i++)
+	{
+		for(j = 1; j <= 6; j++)
+		{
+			a.push(i*j);
+		}
+	}
+	for(i = 0; i < a.length; i++)
+	{
+		yes = false;
+		for(j = 0; j < b.length; j++)
+		{
+			if(a[i] == b[j]) yes = true;
+		}
+		if(yes == false)
+		{
+			b.push(a[i]);
+		}
+		yes = false;
+	}
+}
+</script>

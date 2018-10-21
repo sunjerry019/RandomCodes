@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1418800653 source:/mnt/data/C++_Codes/parkpaths/main.cpp
+	"parkpaths.h"
+	<iostream>
+	<cstdio>
+
+1418800641 /mnt/data/C++_Codes/parkpaths/parkpaths.h
+	<cstdio>
+	<iostream>
+
+1418801035 source:/mnt/data/C++_Codes/parkpaths/parkpaths.cpp
+	"parkpaths.h"
+	<bits/stdc++.h>
+

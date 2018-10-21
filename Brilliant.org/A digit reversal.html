@@ -1,0 +1,22 @@
+<script>
+function hi()
+{
+	S="";
+	for(i = 1; i <= 100; i++)
+	{
+		S+=i.toString();
+	}
+	S = parseInt(S);
+	
+	T="";
+	for(i = 100; i >= 1; i--)
+	{
+		T+=i.toString();
+	}
+	T = parseInt(T);
+	
+	ans = Math.pow(T,2) - Math.pow(S,2);
+	
+	console.log(T + "² - " + S + "² = " + ans);
+}
+</script>

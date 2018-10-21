@@ -1,0 +1,42 @@
+<script>
+/*s = 'woimoepzbjvxfafpyfpzgmxugjodtemcjcpoxobfgbsmokkmcdpmawcwwaxhqwabzdlplvteszqgtkamxjkswkpnzpxpudxcmigz';
+for(i=0;i<s.length;i++)
+{
+	for(j=(i+1);j<(i+7);j++)
+	{
+		q = s.substr(i,j);
+		if(checkq(q)) document.write(q+","+q.length+'<br>');
+	}
+}
+function checkq(a)
+{
+	b=a.split("");
+	c=a.split("").sort();
+	t=0;
+	for(l=0;l<b.length;l++)
+	{
+		if(b[l] == c[l]) t++;
+	}
+	return (t == b.length)
+}*/
+var string = 'woimoepzbjvxfafpyfpzgmxugjodtemcjcpoxobfgbsmokkmcdpmawcwwaxhqwabzdlplvteszqgtkamxjkswkpnzpxpudxcmigz'.toUpperCase();
+var characterNumbers = [];
+var increasingLengths = [];
+
+for (var i = 0; i < string.length; i++) {
+    // Find the corresponding number for this character
+    characterNumbers[i] = string.charCodeAt(i) - 64;
+
+    if (characterNumbers[i] > characterNumbers[i - 1] && i > 0) {
+        // If this character is alphabetically "greater" than the one before it, add to the length of the current sequence
+        // Also, if we're just starting out a sequence, mark this number and the one before it
+        increasingLengths[increasingLengths.length - 1] += (increasingLengths[increasingLengths.length - 1] == 0) ? 2 : 1
+    } else if (increasingLengths[increasingLengths.length - 1] != 0) {
+        // Otherwise, if a sequence just ended, create a new sequence
+        increasingLengths.push(0);
+    }
+}
+
+// Log the length of the longest sequence of characters in alphabetical order
+console.log(Math.max.apply(Math, increasingLengths));
+</script>

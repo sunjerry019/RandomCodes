@@ -1,0 +1,11 @@
+<script>
+var a = new Array();
+a.push(1);
+for(i=0;i<=100000;i++)
+{
+	b = a[i] + 1/a[i];
+	a.push(b);
+}
+document.write(a[100000-1]+"<br/>");
+document.write(Math.floor(a[100000-1]));
+</script>

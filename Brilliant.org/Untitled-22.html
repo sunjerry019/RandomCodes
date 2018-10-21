@@ -1,0 +1,24 @@
+<script>
+cnt = 0;
+for(i=100000;i<=999999;i++)
+{
+	r = new Array();
+	a = Math.floor(i/10);
+	b = i%10;
+	r.unshift(b);
+	while(a > 0)
+	{
+		b = a%10;
+		r.unshift(b);
+		a = Math.floor(a/10);
+	}
+	c = r[0] + r[1] + r[2];
+	d = r[3] + r[4] + r[5];
+	if(c == d)
+	{
+		cnt++;
+		document.write(i+"<br/>");
+	}
+}
+document.write("count: "+cnt);
+</script>

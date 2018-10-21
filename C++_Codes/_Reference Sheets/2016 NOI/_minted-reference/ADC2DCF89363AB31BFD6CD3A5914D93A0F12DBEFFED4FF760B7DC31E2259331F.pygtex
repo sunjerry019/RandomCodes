@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+	\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}iterator\PYGZgt{}}
+	\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}algorithm\PYGZgt{} // for std::inplace\PYGZus{}merge}
+	\PYG{c+cp}{\PYGZsh{}include} \PYG{c+cpf}{\PYGZlt{}functional\PYGZgt{} // for std::less}
+
+	\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{RandomAccessIterator}\PYG{p}{,} \PYG{k}{typename} \PYG{n}{Order}\PYG{o}{\PYGZgt{}}
+	\PYG{k+kt}{void} \PYG{n}{mergesort}\PYG{p}{(}\PYG{n}{RandomAccessIterator} \PYG{n}{first}\PYG{p}{,} \PYG{n}{RandomAccessIterator} \PYG{n}{last}\PYG{p}{,} \PYG{n}{Order} \PYG{n}{order}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{k}{if} \PYG{p}{(}\PYG{n}{last} \PYG{o}{\PYGZhy{}} \PYG{n}{first} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1}\PYG{p}{)}
+		\PYG{p}{\PYGZob{}}
+			\PYG{n}{RandomAccessIterator} \PYG{n}{middle} \PYG{o}{=} \PYG{n}{first} \PYG{o}{+} \PYG{p}{(}\PYG{n}{last} \PYG{o}{\PYGZhy{}} \PYG{n}{first}\PYG{p}{)} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{;}
+			\PYG{n}{mergesort}\PYG{p}{(}\PYG{n}{first}\PYG{p}{,} \PYG{n}{middle}\PYG{p}{,} \PYG{n}{order}\PYG{p}{);}
+			\PYG{n}{mergesort}\PYG{p}{(}\PYG{n}{middle}\PYG{p}{,} \PYG{n}{last}\PYG{p}{,} \PYG{n}{order}\PYG{p}{);}
+			\PYG{n}{std}\PYG{o}{::}\PYG{n}{inplace\PYGZus{}merge}\PYG{p}{(}\PYG{n}{first}\PYG{p}{,} \PYG{n}{middle}\PYG{p}{,} \PYG{n}{last}\PYG{p}{,} \PYG{n}{order}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{RandomAccessIterator}\PYG{o}{\PYGZgt{}}
+	\PYG{k+kt}{void} \PYG{n}{mergesort}\PYG{p}{(}\PYG{n}{RandomAccessIterator} \PYG{n}{first}\PYG{p}{,} \PYG{n}{RandomAccessIterator} \PYG{n}{last}\PYG{p}{)}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n}{mergesort}\PYG{p}{(}\PYG{n}{first}\PYG{p}{,} \PYG{n}{last}\PYG{p}{,} \PYG{n}{std}\PYG{o}{::}\PYG{n}{less}\PYG{o}{\PYGZlt{}}\PYG{k}{typename} \PYG{n}{std}\PYG{o}{::}\PYG{n}{iterator\PYGZus{}traits}\PYG{o}{\PYGZlt{}}\PYG{n}{RandomAccessIterator}\PYG{o}{\PYGZgt{}::}\PYG{n}{value\PYGZus{}type}\PYG{o}{\PYGZgt{}}\PYG{p}{());}
+	\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

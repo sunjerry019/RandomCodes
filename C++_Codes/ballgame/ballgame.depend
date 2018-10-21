@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1418797916 source:/mnt/data/C++_Codes/ballgame/ballgame.cpp
+	<bits/stdc++.h>
+
+1418793857 source:/mnt/data/C++_Codes/ballgame/main.cpp
+	"ballgame.h"
+	<cstdio>
+
+1418797433 /mnt/data/C++_Codes/ballgame/ballgame.h
+

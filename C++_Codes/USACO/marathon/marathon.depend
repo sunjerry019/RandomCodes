@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1418720179 source:/mnt/data/C++_Codes/USACO/marathon/main.cpp
+	<fstream>
+	<cmath>
+

@@ -1,0 +1,177 @@
+<html>
+<script>
+var primes = new Array(2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,397,401,409,419,421,431,433,439,443,449,457,461,463,467,479,487,491,499,503,509,521,523,541,547,557,563,569,571,577,587,593,599,601,607,613,617,619,631,641,643,647,653,659,661,673,677,683,691,701);
+function convert(x)
+{
+	a = x.charCodeAt() - 64;
+	return a;
+}
+function isPrime(n)
+{
+	/*if (n < 2) return false;
+    /**
+     * An integer is prime if it is not divisible by any prime less than or equal to its square root
+     **/
+    /*var q = Math.ceil(Math.sqrt(n));
+    for (var k = 2; k <= q; i++)
+    {
+        if (n % k == 0)
+        {
+            return false;
+        }
+    }
+    return true;*/
+	
+	if(n < 2)
+	{
+		return false;
+	}
+	else if(n >= 2 && n < 10)
+	{
+		for(i = 0; i < 4; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 10 && n < 100)
+	{
+		for(i = 4; i <25; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 100 && n < 200)
+	{
+		for(i = 25; i <46; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 200 && n < 300)
+	{
+		for(i = 46; i < 62; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 300 && n < 400)
+	{
+		for(i = 62; i < 78; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 400 && n < 500)
+	{
+		for(i = 78; i < 95; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else if(n >= 500 && n < 600)
+	{
+		for(i = 95; i < 109; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+	else
+	{
+		for(i = 109; i < primes.length; i++)
+		{
+			if(n == primes[i]) return true;
+			else return false;
+		}
+	}
+}
+function wahr()
+{
+	total ++;
+	console.log("Prime");
+}
+function calc()
+{
+	w = document.getElementById("q").value.toString();
+	w = w.split(' ');
+	total = 0;
+	for(i = 0; i < w.length; i++)
+	{
+		sum = 0;
+		r = w[i].split('');
+		for(j = 0; j < r.length; j++)
+		{
+			sum += convert(r[j]);
+		}
+		n = sum;
+		if(n >= 2 && n < 10)
+		{
+			for(i = 0; i < 4; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 10 && n < 100)
+		{
+			for(i = 4; i <25; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 100 && n < 200)
+		{
+			for(i = 25; i <46; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 200 && n < 300)
+		{
+			for(i = 46; i < 62; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 300 && n < 400)
+		{
+			for(i = 62; i < 78; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 400 && n < 500)
+		{
+			for(i = 78; i < 95; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else if(n >= 500 && n < 600)
+		{
+			for(i = 95; i < 109; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		else
+		{
+			for(i = 109; i < primes.length; i++)
+			{
+				if(n == primes[i]) wahr();
+			}
+		}
+		console.log(sum + ":" + w[i]);
+	}
+	console.log("Total: " + total);
+}
+
+</script>
+<input id="q"><br>
+<button onclick="calc();">Submit</button>
+</html>

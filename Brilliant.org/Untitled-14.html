@@ -1,0 +1,20 @@
+<script>
+tt = 0;
+for(a=0;a<=10;a++)
+{
+	for(b=0;b<=10;b++)
+	{
+		for(c=0;c<=10;c++)
+		{
+			sum1 = a*(b+c);
+			sum2 = (a*b)+c;
+			if(sum1 == sum2)
+			{
+				document.write(a+" "+b+" "+c+"<br/>");
+				tt++;
+			}
+		}
+	}
+}
+document.write(tt);
+</script>

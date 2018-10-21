@@ -1,0 +1,9 @@
+D:\C# Projects\Forever\Forever\Forever\bin\Debug\Forever.exe.config
+D:\C# Projects\Forever\Forever\Forever\bin\Debug\Forever.exe
+D:\C# Projects\Forever\Forever\Forever\bin\Debug\Forever.pdb
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.csprojResolveAssemblyReference.cache
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.Form1.resources
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.Properties.Resources.resources
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.csproj.GenerateResource.Cache
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.exe
+D:\C# Projects\Forever\Forever\Forever\obj\Debug\Forever.pdb
