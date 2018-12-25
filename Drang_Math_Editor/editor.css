@@ -1,0 +1,82 @@
+
+
+
+/*
+    Remember to style the fonts to suit the website
+*/
+
+
+
+/*<body>*/
+body
+{
+    margin: 0;
+    font-family: sans-serif;
+}
+/*</body>*/
+
+/*<overlays>*/
+#overlay
+{
+    z-index: 100;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+/*</overlays>*/
+
+.tabs{
+    margin-top: 1.5em;
+}
+
+.tab{
+    position: relative;
+    border-radius: 0.2em;
+    background: #eee;
+    text-decoration: none;
+    padding:0.5em;
+    top:0px;
+    box-shadow: 0 3px 0 #ccc;
+    color:inherit;
+    transition:0.2s;
+}
+
+.tab:hover{
+    background: #efefef;
+}
+
+.tab:active{
+    top: 3px;
+    box-shadow: 0 0 0 #ccc;
+}
+
+.toolbar{
+    margin-top: 1em;
+}
+.toolbar div{
+    margin: 0.5em 1em;
+}
+
+.button{
+    font-size: 0.7em;
+    position: relative;
+    border-radius: 0.2em;
+    background: #ddd;
+    text-decoration: none;
+    height:3em;
+    line-height: 3em;
+    padding: 0 0.5em;
+    top:0px;
+    box-shadow: 0 3px 0 #bbb;
+    color:inherit;
+    transition:0.2s;
+    box-sizing: border-box;
+    display:inline-block;
+}
+
+.button:active{
+    top:3px;
+    box-shadow: 0 0 0 #bbb;
+}
