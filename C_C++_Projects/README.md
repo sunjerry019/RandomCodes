@@ -9,6 +9,7 @@ Includes random practice and proof of concept codes.
 
 | Folder        | Description   |
 | :---: | --- |
+| [1_C++_Codes](//github.com/sunjerry019/RandomCodes/tree/master/C_C%2B%2B_Projects/1_C%2B%2B_Codes) | Each subfolder is a question. |
 | [NOI 2016](//github.com/sunjerry019/RandomCodes/tree/master/C_C%2B%2B_Projects/NOI%202016) | Codes submitted for [National Olympiad in Informatics](//noisg.comp.nus.edu.sg/noi/) 2016 |
 | [USACO](//github.com/sunjerry019/RandomCodes/tree/master/C_C%2B%2B_Projects/USACO) | Codes submitted for [USA Computing Olympiad](//www.usaco.org/) online contests. Each subfolder is a question. |
 | [RaffleOJ](//github.com/sunjerry019/RandomCodes/tree/master/C_C%2B%2B_Projects/RaffleOJ) | Each subfolder is a question. The entire folder is a Visual Studio Project. All questions are written for competitive programming training in 2014 using the Raffles Online Judge. |
