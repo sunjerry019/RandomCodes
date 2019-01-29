@@ -27,7 +27,7 @@ Random codes I've written/adapted that don't quite deserve its own full reposito
 
 Repository was hosted as an afterthought and hence did not accurately depict the contribution history.
 
-Web App built for the 24 Hour Kayaking Challenge in 2016 for our school. The aim was to project some form of display on a screen so that the participants and audience of the challenge could keep track of their efforts on how much money has been raised.
+This is a Web App built for the 24 Hour Kayaking Challenge in 2016 for our school. The aim was to project some form of display on a screen so that the participants and audience of the challenge could keep track of their efforts on how much money has been raised.
 
 <a name="id_bm"></a>
 ## [ BeanMaths ](//github.com/sunjerry019/RandomCodes/tree/master/BeanMaths)
@@ -59,7 +59,7 @@ Includes random practice and proof of concept codes.
 <a name="id_csp"></a>
 ## [ C# Projects ](//github.com/sunjerry019/RandomCodes/tree/master/C#%20Projects)
 
-[![Uses C#](https://img.shields.io/badge/Uses-C#-#68217A.svg?style=for-the-badge)](//shields.io/)
+[![Uses C#](https://img.shields.io/badge/Uses-C%23-68217A.svg?style=for-the-badge)](//shields.io/)
 
 My brief stint with C# for Windows GUI Applications
 
