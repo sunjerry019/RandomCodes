@@ -3,7 +3,9 @@
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-oxygen.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 
-Random codes I've written/adapted that don't quite deserve its own full repository. Also includes any test scripts/proof of concept codes.
+Random codes I've written/adapted over the years that don't quite deserve its own full repository. Also includes any test scripts/proof of concept codes.
+
+Unfortunately, I only started this repo one fine day when I decided to clean up my disk so it doesn't have the full contribution/version control history.
 
 ## TABLE OF CONTENTS
 
