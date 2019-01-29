@@ -43,9 +43,9 @@ Back in the days (2013) when they just had free problems where you could do ques
 <a name="id_4"></a>
 ## [ C_C++_Projects ](//github.com/sunjerry019/RandomCodes/tree/master/C_C++_Projects)
 
-[![Uses C++](https://img.shields.io/badge/Uses-C++-orange.svg?style=for-the-badge)](//shields.io/)
+[![Uses C++](https://img.shields.io/badge/Uses-C++-orange.svg?style=for-the-badge&logo=C%2B%2B)](//shields.io/)
 [![Uses C](https://img.shields.io/badge/Uses-C-orange.svg?style=for-the-badge)](//shields.io/)
 
-A collection of C and C++ code that I've written in my days of competitive programming.
+Mostly a collection of C++ code that I've written in my days of competitive programming. But also just a place to dump all my random C and C++ codes.
 
-Also includes random practice and proof of concept codes.
+Includes random practice and proof of concept codes.
