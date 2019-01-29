@@ -9,9 +9,9 @@ All sums are randomly generated. Repeats are also avoided as much as possible; a
 
 It was made as an improvement over the Excel file that my parents have been using.
 
-## [Problems](//github.com/sunjerry019/RandomCodes/tree/master/BeanMaths/problems)
+## [Problems](/sunjerry019/RandomCodes/tree/master/BeanMaths/problems)
 
 The collection of already generated problem sets can be found here
 
-[bean.py](//github.com/sunjerry019/RandomCodes/blob/master/BeanMaths/bean.py) is used to generate questions that involve operations of numbers between l_limit and h_limit
-[bean2.py](//github.com/sunjerry019/RandomCodes/blob/master/BeanMaths/bean2.py) is used to generate 100 - x where 0 < x < 100
+[bean.py](/sunjerry019/RandomCodes/blob/master/BeanMaths/bean.py) is used to generate questions that involve operations of numbers between l_limit and h_limit
+[bean2.py](/sunjerry019/RandomCodes/blob/master/BeanMaths/bean2.py) is used to generate 100 - x where 0 < x < 100
