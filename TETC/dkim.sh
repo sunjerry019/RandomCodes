@@ -26,7 +26,7 @@ cd "$DIR"
 
 # Update DNS
 	## Extract the text
-	TXTREC=`egrep -o '"[a-zA-Z0-9;= +\/\\-]+"' theenglishtuitioncorner.txt | sed 's/"//g' | sed 's/h=rsa\-sha256;/h=sha256;/g' | awk '{print}' ORS=''`
+	TXTREC=`egrep -o '"[*a-zA-Z0-9;= +\/\\-]+"' theenglishtuitioncorner.txt | sed 's/"//g' | sed 's/*//g' | sed 's/h=rsa\-sha256;/h=sha256;/g' | awk '{print}' ORS=''`
 	TXTDNSDATA='{"type":"TXT","name":"'$DATE'._domainkey","content":"'$TXTREC'"}'
 	## https://stackoverflow.com/a/15580184
 
