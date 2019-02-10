@@ -37,7 +37,7 @@ cd "$DIR"
 	curl -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE/dns_records" -H "X-Auth-Email: $AuthEmail" -H "X-Auth-Key: $AuthKey" -H "Content-Type: application/json" --data "$TXTDNSDATA" &> cloudflareTXT.log
 
 	## Pause 5 seconds to give CloudFlare a bit more time to process
-    sleep 5
+	sleep 5
 
 	## Test configuration
 	opendkim-testkey -d theenglishtuitioncorner.com -s $DATE -k theenglishtuitioncorner.private -vvv &> opendkimtest.log
