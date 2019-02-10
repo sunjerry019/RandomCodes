@@ -49,8 +49,8 @@ fi
 	systemctl stop postfix opendkim
 
 # Backup the previous key
-	if [ ! -d "etc/opendkim/keys/backups" ]; then
-	  mkdir -p "etc/opendkim/keys/backups"
+	if [ ! -d "/etc/opendkim/keys/backups" ]; then
+	  mkdir -p "/etc/opendkim/keys/backups"
 	fi
 	mv /etc/opendkim/keys/theenglishtuitioncorner.private /etc/opendkim/keys/backups/Backup_on_$DATE.private.bak
 
