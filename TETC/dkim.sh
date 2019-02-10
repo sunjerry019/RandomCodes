@@ -46,7 +46,6 @@ cd "$DIR"
         echo "Something went wrong rotating the DKIM keys, please check it out. Log is available at $DIR/opendkimtest.log. This is an automated message." | mail -s "DKIM Key Rotation Error" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com"
         exit 1
     fi
-fi
 
 # Stop the server
 	systemctl stop postfix opendkim
