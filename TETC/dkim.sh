@@ -4,6 +4,8 @@
 # Please choose a time like 3 - 4 am SGT (note: server time is different) to do the change so as to minimize chances of a mail being sent while the keys are being changed
 # The backups is the month the backup was made
 
+# made to follow tutorial https://linode.com/docs/email/postfix/configure-spf-and-dkim-in-postfix-on-debian-8/#configure-opendkim
+
 DATE=`date '+%Y%m'`
 # DATE="201804"
 DIR="/home/sunyudong/dkim/$DATE"
