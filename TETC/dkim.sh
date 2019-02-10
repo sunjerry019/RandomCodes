@@ -73,9 +73,10 @@ cd "$DIR"
 
 # Clean up the working folder and compress logfiles for archiving
 	cd $DIR/../
-	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$DATE.7z" "$DATE" &> "7zip.log"
+	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$DATE.7z" "$DATE" &> "compress.log"
 	if [ $? -ne 0 ]; then
-		rm -r "$DATE"
-	else
 		echo "Failed to compress the logfiles for $DATE. Normally this email would not be sent, please rectify errors." | mail -s "Logfiles failed to compress for DKIM Key Rotation $DATE" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com" &> "email_compressfail.log"
+		exit 1
+	else
+		rm -r "$DATE"
 	fi
