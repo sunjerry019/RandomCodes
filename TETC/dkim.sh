@@ -23,7 +23,7 @@ fi
 cd "$DIR"
 
 # Create the new keys
-	opendkim-genkey -b 4096 -h rsa-sha256 -r -s $DATE -d theenglishtuitioncorner.com -v > opendkim-genkey.log
+	opendkim-genkey -b 4096 -h rsa-sha256 -r -s $DATE -d theenglishtuitioncorner.com -v &> opendkim-genkey.log
 	mv $DATE.private theenglishtuitioncorner.private
 	mv $DATE.txt theenglishtuitioncorner.txt
 
@@ -34,10 +34,13 @@ cd "$DIR"
 	## https://stackoverflow.com/a/15580184
 
 	## Send API request to cloudflare
-	curl -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE/dns_records" -H "X-Auth-Email: $AuthEmail" -H "X-Auth-Key: $AuthKey" -H "Content-Type: application/json" --data "$TXTDNSDATA" > cloudflareTXT.log
+	curl -X POST "https://api.cloudflare.com/client/v4/zones/$ZONE/dns_records" -H "X-Auth-Email: $AuthEmail" -H "X-Auth-Key: $AuthKey" -H "Content-Type: application/json" --data "$TXTDNSDATA" &> cloudflareTXT.log
+
+	## Pause 5 seconds to give CloudFlare a bit more time to process
+    sleep 5
 
 	## Test configuration
-	opendkim-testkey -d theenglishtuitioncorner.com -s $DATE -k theenglishtuitioncorner.private -vvv > opendkimtest.log
+	opendkim-testkey -d theenglishtuitioncorner.com -s $DATE -k theenglishtuitioncorner.private -vvv &> opendkimtest.log
 	if [ $? -ne 0 ]; then
         ## Something went wrong --> Send email to the admins
         echo "Something went wrong rotating the DKIM keys, please check it out. Log is available at $DIR/opendkimtest.log. This is an automated message." | mail -s "DKIM Key Rotation Error" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com"
