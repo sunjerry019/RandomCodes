@@ -43,7 +43,7 @@ cd "$DIR"
 	opendkim-testkey -d theenglishtuitioncorner.com -s $DATE -k theenglishtuitioncorner.private -vvv &> opendkimtest.log
 	if [ $? -ne 0 ]; then
         ## Something went wrong --> Send email to the admins
-        echo "Something went wrong rotating the DKIM keys, please check it out. Log is available at $DIR/opendkimtest.log. This is an automated message." | mail -s "DKIM Key Rotation Error" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com"
+        echo "Something went wrong rotating the DKIM keys, please check it out. Log is available at $DIR/opendkimtest.log. This is an automated message." | mail -s "DKIM Key Rotation Error" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com" &> "email_keyrotError.log"
         exit 1
     fi
 
@@ -65,17 +65,17 @@ cd "$DIR"
 	echo -e "theenglishtuitioncorner\ttheenglishtuitioncorner.com:$DATE:/etc/opendkim/keys/theenglishtuitioncorner.private" > /etc/opendkim/key.table
 
 # Restart the server
-	systemctl start opendkim
-	systemctl start postfix
+	systemctl start opendkim &> "opendkim_start.log"
+	systemctl start postfix &> "postfix_start.log"
 
 # Send a test email to check if everything is working fine
-	echo "This is an automated message to test if DKIM and SPF are working after a change of keys. The keys were changed on $(TZ=":Asia/Singapore" date '+%Y-%m-%d %H:%M:%S') Singapore Time. Please view the SPF and DKIM headers and rectify any errors should there be any. Remember to remove old system logfiles and DNS keys from time to time. To unsubscribe, please edit the cron-script directly." | mail -s "DKIM Key Rotation Test Email for $DATE" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com"
+	echo "This is an automated message to test if DKIM and SPF are working after a change of keys. The keys were changed on $(TZ=":Asia/Singapore" date '+%Y-%m-%d %H:%M:%S') Singapore Time. Please view the SPF and DKIM headers and rectify any errors should there be any. Remember to remove old system logfiles and DNS keys from time to time. To unsubscribe, please edit the cron-script directly." | mail -s "DKIM Key Rotation Test Email for $DATE" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com" &> "email_automatedcheck.log"
 
 # Clean up the working folder and compress logfiles for archiving
 	cd $DIR/../
-	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$DATE.7z" "$DATE"
+	7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on "$DATE.7z" "$DATE" &> "7zip.log"
 	if [ $? -ne 0 ]; then
 		rm -r "$DATE"
 	else
-		echo "Failed to compress the logfiles for $DATE. Normally this email would not be sent, please rectify errors." | mail -s "Logfiles failed to compress for DKIM Key Rotation $DATE" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com"
+		echo "Failed to compress the logfiles for $DATE. Normally this email would not be sent, please rectify errors." | mail -s "Logfiles failed to compress for DKIM Key Rotation $DATE" -r "$USER@theenglishtuitioncorner.com" "sunjerry019@gmail.com,liyicheng340@gmail.com" &> "email_compressfail.log"
 	fi
