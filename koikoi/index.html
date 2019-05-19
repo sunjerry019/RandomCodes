@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <!-- Compiled and minified CSS -->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap&text=-1234567890" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet"> 
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	    <!-- Compiled and minified JavaScript -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+		<script>
+			// On click it transfers to
+			// Draw = transfer 0
+			var koikoi = {
+				players      : { A : NaN, B: NaN },
+				oya			 : 0, 
+				currRound    : 1, 
+				docReady     : function(){
+					// EventListeners
+					document.getElementById("zero").addEventListener("click", function(e) { e.stopPropagation(); e.preventDefault(); koikoi.pressZero(); });
+					document.getElementById("initialize").addEventListener("click", function(e) { e.stopPropagation(); e.preventDefault(); koikoi.initialize(); });
+					document.getElementById("to-A").addEventListener("click", function(e) { e.stopPropagation(); e.preventDefault(); koikoi.transfer(0); });
+					document.getElementById("to-B").addEventListener("click", function(e) { e.stopPropagation(); e.preventDefault(); koikoi.transfer(1); });
+
+					oyas = document.getElementsByClassName("oya");
+					Array.prototype.forEach.call(oyas, function (oyaElem) {
+						oyaElem.addEventListener("click", function(e) {
+							koikoi.oya = parseInt(e.target.dataset.player);
+							koikoi.updateOya();
+						});
+					});
+
+					koikoi.initialize();
+				},
+				initialize   : function() {
+					koikoi.players.A = 150;
+					koikoi.players.B = 150;
+					koikoi.oya = 0
+					koikoi.currRound = 1;
+
+					document.getElementById("zero").value = 0;
+					document.getElementById("zero").innerHTML = 0;
+					document.getElementById("points").value = 100; 
+
+					koikoi.updateScores();
+					koikoi.updateRounds();
+					koikoi.updateOya();
+				}, 
+				updateScores : function() {
+					document.querySelector("#player-A .player-points").innerHTML = koikoi.players.A; 
+					document.querySelector("#player-B .player-points").innerHTML = koikoi.players.B; 
+				},
+				updateRounds : function() {
+					elems = document.getElementsByClassName("rounds");
+					for (var elem of elems) { elem.innerHTML = koikoi.currRound; }
+				},
+				updateOya    : function() { 
+					if(koikoi.oya) {
+						document.querySelector("#player-A .oya").classList.remove("active");
+						document.querySelector("#player-B .oya").classList.add("active");
+					}
+					else {
+						document.querySelector("#player-B .oya").classList.remove("active");
+						document.querySelector("#player-A .oya").classList.add("active");
+					}
+				},
+				transfer     : function(dest) {
+					koikoi.oya = dest;
+					koikoi.currRound += 1;
+
+					scr = parseInt(document.getElementById("points").value);
+
+					if (dest) {
+						// to player 1
+						koikoi.players.A -= scr;
+						koikoi.players.B += scr;
+					}
+					else {
+						// to player 0
+						koikoi.players.A += scr;
+						koikoi.players.B -= scr;
+					}
+
+					koikoi.updateScores();
+					koikoi.updateRounds();
+					koikoi.updateOya();
+				},
+				pressZero    : function() {
+					zeroElem = document.getElementById("zero");
+					document.getElementById("points").value = zeroElem.dataset.points;
+					zeroElem.dataset.points = zeroElem.dataset.points == 0 ? 100 : 0;
+					zeroElem.innerHTML = zeroElem.dataset.points;
+				}
+			};
+		</script>
+
+		<style>
+			#wrapper { display: flex; align-items: center; justify-content: center; text-align: center; height: 100vh; }
+			#point-exchange { display: flex; flex-direction: column; justify-content: space-evenly; height: 100%; text-align: center; width: 34vw; }
+			#point-exchange .point-exchange-btn { height: 10vh; }
+			#point-exchange .point-exchange-btn i { font-size: 10vh; line-height: 10vh; }
+			#point-exchange #points { max-width: 5ch; margin: 0 auto; font-size: 10vh; height: 10vh; font-family: 'Roboto', sans-serif; text-align: center; }
+			.px-wrap { display: flex; flex-direction: column; align-items: center; }
+			.px-wrap .btn:first-child { margin-bottom: 5vh; }
+			#zero, .player-points, .rounds { font-family: "Roboto Mono", monospace; }
+			.func { height: 5vh; font-size: 3vh; line-height: 5vh; }
+			.func i { font-size: 3vh; line-height: 5vh; }
+			.player { width: 33vh; height: 100%; display: flex; align-items: center; justify-content: center; }
+			.player .rotated { width: 100vh; height: 33vw; position: absolute; display: flex; align-items: center; justify-content: center; }
+			.player#player-A .rotated { transform: rotate(90deg); }
+			.player#player-B .rotated { transform: rotate(-90deg); }
+			.oya { text-transform: uppercase; display: inline-block; padding: 5px 10px; border: 1px solid #777; position: absolute; left: 5vh; top: 5vh; background-color: #bbb; color: #fff; font-weight: bold; cursor: pointer; transition: 150ms ease;  }
+			.oya.active { background-color: #09c; }
+			.player-points { font-size: 10vw; }
+			.rounds { display: inline-block; padding: 5px 10px; border: 1px solid #09c; position: absolute; right: 5vh; top: 5vh; }
+			.rounds:before { content: "ROUND "; font-family: "Roboto"; }
+
+			.noselect {
+			  -webkit-touch-callout: none; /* iOS Safari */
+			    -webkit-user-select: none; /* Safari */
+			     -khtml-user-select: none; /* Konqueror HTML */
+			       -moz-user-select: none; /* Firefox */
+			        -ms-user-select: none; /* Internet Explorer/Edge */
+			            user-select: none; /* Non-prefixed version, currently
+			                                  supported by Chrome and Opera */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="player-A" class="player">
+				<div class="rotated">
+					<div class="oya noselect active" data-player="0">Dealer</div>
+					<div class="rounds">-</div>
+					<div class="player-points">---</div>
+				</div>
+			</div>
+			<div id="point-exchange">
+				<div class="px-wrap">
+					<button class="btn waves-effect waves-light point-exchange-btn brown" type="submit" name="action" id="to-B"> <i class="material-icons">keyboard_arrow_right</i> </button>
+					<button class="btn waves-effect waves-light func brown" type="submit" name="action" id="zero" data-points="0">0</button>
+				</div>
+				<input type="number" id="points" value="100" />
+				<div class="px-wrap">
+					<button class="btn waves-effect waves-light func brown" type="submit" name="action" id="initialize"><i class="material-icons">settings_backup_restore</i></button>
+					<button class="btn waves-effect waves-light point-exchange-btn brown" type="submit" name="action" id="to-A"> <i class="material-icons">keyboard_arrow_left</i> </button>
+				</div>
+			</div>
+			<div id="player-B" class="player">
+				<div class="rotated">
+					<div class="oya noselect" data-player="1">Dealer</div>
+					<div class="rounds">-</div>
+					<div class="player-points">---</div>
+				</div>
+			</div>
+		</div>
+
+		<script>koikoi.docReady();</script>
+	</body>
+</html>
